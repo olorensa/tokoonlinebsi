@@ -28,7 +28,7 @@ Route::get('backend/login', [LoginController::class, 'loginBackend'])->name('bac
 Route::post('backend/login', [LoginController::class, 'authenticateBackend'])->name('backend.login');
 Route::post('backend/logout', [LoginController::class, 'logoutBackend'])->name('backend.logout');
 
-Route::middleware(['auth', 'user-agent-based'])->group(function () {
+Route::middleware(['auth'])->group(function () {
    
 
 
