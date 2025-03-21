@@ -99,7 +99,7 @@
                                             class="fa fa-power-off"></i> Keluar
                                     </a>
                                     <!-- form keluar app -->
-                                    <form id="keluar-app" action="{{ route('customer.logout') }}" method="POST"
+                                    <form id="keluar-app" action="" method="POST"
                                         class="d-none">
                                         @csrf
                                     </form>
@@ -115,7 +115,7 @@
                                 </div>
                                 <strong class="text-uppercase">Akun Saya<i class="fa fa-caret-down"></i></strong>
                             </div>
-                            <a href="{{ route('auth.redirect') }}" class="text-uppercase">Login</a>
+                            <a href="" class="text-uppercase">Login</a>
                         </li>
                         <!-- /Account -->
                         @endif
@@ -148,7 +148,7 @@
                     <span class="category-header">Kategori <i class="fa fa-list"></i></span>
                     <ul class="category-list">
                         @foreach ($kategori as $row)
-                        <li><a href="{{ route('produk.kategori', $row->id) }}">{{ $row->nama_kategori}}</a></li>
+                        <li></li>
                         @endforeach
                     </ul>
                     <ul class="category-list">
@@ -158,7 +158,7 @@
                     <span class="category-header">Kategori <i class="fa fa-list"></i></span>
                     <ul class="category-list">
                         @foreach ($kategori as $row)
-                        <li><a href="{{ route('produk.kategori', $row->id) }}">{{ $row->nama_kategori}}</a></li>
+                        <li></li>
                         @endforeach
                     </ul>
                 </div>
@@ -169,8 +169,8 @@
                 <div class="menu-nav">
                     <span class="menu-header">Menu <i class="fa fa-bars"></i></span>
                     <ul class="menu-list">
-                        <li><a href="{{ route('beranda') }}">Beranda</a></li>
-                        <li><a href="{{ route('produk.all') }}">Produk</a></li>
+                        <li><a href="">Beranda</a></li>
+                        <li><a href="">Produk</a></li>
                         <li><a href="#">Lokasi</a></li>
                         <li><a href="#">Hubungi Kami</a></li>
                     </ul>
@@ -289,7 +289,7 @@
                         <h3 class="aside-title">Filter Kategori</h3>
                         <ul class="list-links">
                             @foreach ($kategori as $row)
-                            <li><a href="{{ route('produk.kategori', $row->id) }}">{{ $row->nama_kategori}}</a></li>
+                            {{-- <li><a href="{{ route('produk.kategori', $row->id) }}">{{ $row->nama_kategori}}</a></li> --}}
                             @endforeach
                         </ul>
                     </div>
