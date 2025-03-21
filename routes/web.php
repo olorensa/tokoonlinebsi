@@ -23,6 +23,7 @@ Route::get('/', function () {
     return redirect()->route('beranda');
 });
 
+
 Route::get('backend/login', [LoginController::class, 'loginBackend'])->name('backend.login');
 Route::post('backend/login', [LoginController::class, 'authenticateBackend'])->name('backend.login');
 Route::post('backend/logout', [LoginController::class, 'logoutBackend'])->name('backend.logout');
@@ -59,8 +60,6 @@ Route::middleware(['auth', 'user-agent-based'])->group(function () {
 });
 
 
-
-
     // Frontend
     Route::get('/beranda', [BerandaController::class, 'index'])->name('beranda');
 
@@ -68,7 +67,9 @@ Route::middleware(['auth', 'user-agent-based'])->group(function () {
         //Detail Produk
         Route::get('/produk/detail/{id}', 'detail')->name('produk.detail');
         Route::get('/produk/kategori/{id}', 'produkKategori')->name('produk.kategori');
-        Route::get('/produk/kategori/{id}', 'produkAll')->name('produk.all');
+        Route::get('/produk/all', 'produkAll')->name('produk.all');
+       
+
     });
 
     //API Google
