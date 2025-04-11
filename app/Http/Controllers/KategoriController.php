@@ -13,6 +13,7 @@ class KategoriController extends Controller
     public function index()
     {
         $kategori = Kategori::orderBy('nama_kategori', 'asc')->get();
+      
         return view('backend.v_kategori.index', [
             'judul' => 'Kategori',
             'index' => $kategori
