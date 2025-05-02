@@ -7,21 +7,22 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\ProdukController;
 use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\LoginPelangganController;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
+
 
 Route::get('/', function () {
     return redirect()->route('beranda');
 });
+
+//API Google
+Route::get('/register', [RegisterController::class, 'register']);
+Route::post('/store-register', [RegisterController::class, 'store'])->name('store.register');
+Route::get('/login', [LoginPelangganController::class, 'index'])->name('login');
+
+
+
 
 Route::get('/beranda', [BerandaController::class, 'index'])->name('beranda');
 Route::get('backend/beranda', [BerandaController::class, 'berandaBackend'])->name('backend.beranda')->middleware('auth');
