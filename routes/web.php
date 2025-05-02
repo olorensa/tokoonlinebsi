@@ -17,11 +17,18 @@ Route::get('/', function () {
 });
 
 //API Google
-Route::get('/register', [RegisterController::class, 'register']);
-Route::post('/store-register', [RegisterController::class, 'store'])->name('store.register');
-Route::get('/login', [LoginPelangganController::class, 'index'])->name('login');
-
-
+// register
+Route::controller(RegisterController::class)->group(function () {
+    Route::get('/register', 'register');
+    Route::post('/store-register', 'store')->name('store.register');
+});
+// nama pelanggan
+// login pelanggan
+Route::controller(LoginPelangganController::class)->group(function () {
+    Route::get('/login', 'index')->name('login');
+    Route::post('/post-login', 'store')->name('postlogin');
+    Route::post('/logout-pelanggan', 'logout')->name('logoutpelanggan');
+});
 
 
 Route::get('/beranda', [BerandaController::class, 'index'])->name('beranda');

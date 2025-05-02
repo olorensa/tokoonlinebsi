@@ -115,11 +115,14 @@
 
     <div class="login-container">
         <h2>Log in</h2>
-
-        <input type="email" placeholder="Email">
-        <input type="password" placeholder="Password">
-        <button type="submit">LOG IN</button>
-        <a href="#" class="forgot-password">Lupa Password</a>
+        <form action ="{{ route('postlogin') }}" method="POST">
+            @csrf
+            <input type="email" name="email" placeholder="Email" required>
+            <input type="password" name="password" placeholder="Password" required>
+            <button type="submit">LOG IN</button>
+        </form>
+            <a href="#" class="forgot-password">Lupa Password</a>
+            
 
         <div class="social-login">
             <a href="#" class="facebook">Facebook</a>

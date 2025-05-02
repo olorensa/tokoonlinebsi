@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use App\Models\User;
 
 class LoginPelangganController extends Controller
 {
@@ -27,7 +29,20 @@ class LoginPelangganController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $credentials = $request->validate([
+            'email' => 'required|email',
+            'password' => 'required',
+        ]);
+
+        //attemot to login
+        if (Auth::attempt($credentials)) {
+        //Regenerate session
+            $request->session()->regenerate();
+            //Redirect to intended page
+            return redirect()->intended('/beranda')->with('success', 'Login successful. Welcome!');
+        }
+        //Login failed
+        return back()->with('Invalid credentials!')->withInput();
     }
 
     /**
@@ -61,4 +76,13 @@ class LoginPelangganController extends Controller
     {
         //
     }
+
+    public function logout(Request $request)
+    {
+        Auth::logout();
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+        return redirect('/')->with('success', 'Logout successful. See you next time!');
+    }
+
 }
