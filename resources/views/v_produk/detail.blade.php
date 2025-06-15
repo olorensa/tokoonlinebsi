@@ -63,10 +63,9 @@
                     </ul>
                 </div>
                 <div class="product-btns">
-                    <form action="#" method="post" style="display: inline-block;">
+                    <form action="order.addToCart" method="post" style="display: inline-block;">
                         @csrf
-                        <button type="submit" class="primary-btn add-to-cart"><i class="fa
-fa-shopping-cart"></i>
+                        <button type="submit" class="primary-btn add-to-cart"><i class="fafa-shopping-cart"></i>
                             Pesan</button>
                     </form>
                 </div>
